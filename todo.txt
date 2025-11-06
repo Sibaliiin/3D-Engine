@@ -1,0 +1,8 @@
+###########
+#  TO DO  #
+###########
+
+1. Figure out what kind of 3d engine i want to write (software rasterizer? utilize gpu?)
+2. Figure out matrices
+3. Make an engine, window, all that jazz
+4. Draw a triangle
