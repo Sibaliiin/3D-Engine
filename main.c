@@ -3,26 +3,19 @@
 // initializing the rectangle
 SDL_Rect rect;
 
+// making a 4x4 projection matrix
+float matProj[4][4];
+
 int main()
 {
 	srand(time(NULL));
 	
-	int r = rand();
+	printf("m[0][0] = %f\n", matProj[0][0]);
 
-	printf("random number = %d\n",r);
 	int rSize = 16;
 	int random_numbers[(rSize*rSize)];
-
-	/*
-	for (int i=0; i<(rSize*rSize); i++)
-	{
-		random_numbers[i] = r%256;
-		printf("%d\n", r%256);
-		r = rand();
-	}
-	*/
 	
-	r = rand()%256;
+	int r = rand()%256;
 
 	generate_random_numbers(random_numbers, r);
 	
