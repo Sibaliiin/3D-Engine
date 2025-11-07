@@ -3,4 +3,3 @@
 ###########
 
 1. Figure out matrices
-2. Draw a triangle

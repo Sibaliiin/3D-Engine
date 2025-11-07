@@ -12,8 +12,14 @@ int main()
 	rect.h = 50;
 	rect.x = 100;
 	rect.y = 50;
-
 	
+	// defining a triangle
+	vec3 point1 = {50, 50, 0};
+	vec3 point2 = {100, 100, 0};
+	vec3 point3 = {50, 100, 0};
+
+	triangle tri = {point1, point2, point3};
+
 	if (sdl_initialize(&engine))
 	{
 		game_cleanup(&engine, EXIT_FAILURE);
@@ -55,7 +61,8 @@ int main()
 		// set the color to red, and draw a rectangle
 		SDL_SetRenderDrawColor(engine.renderer, 255, 0, 0, 255);
 		SDL_RenderDrawRect(engine.renderer, &rect);
-
+		//SDL_RenderDrawLine(engine.renderer, 50, 50, 300, 300);
+		draw_triangle(engine, tri, 255, 0, 0, 255);		
 		// render everything
 		SDL_RenderPresent(engine.renderer);
 

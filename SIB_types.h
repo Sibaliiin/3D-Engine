@@ -9,4 +9,11 @@ typedef struct
 	float z;
 } vec3;
 
+typedef struct
+{
+	vec3 p1;
+	vec3 p2;
+	vec3 p3;
+} triangle;
+
 #endif

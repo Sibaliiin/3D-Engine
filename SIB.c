@@ -57,3 +57,10 @@ bool sdl_initialize	(Engine *engine)
 	return false;
 }
 
+void draw_triangle(Engine engine, triangle t, int r, int g, int b, int a)
+{
+	SDL_SetRenderDrawColor(engine.renderer, r, g, b, a);
+	SDL_RenderDrawLine(engine.renderer, t.p1.x, t.p1.y, t.p2.x, t.p2.y);
+	SDL_RenderDrawLine(engine.renderer, t.p2.x, t.p2.y, t.p3.x, t.p3.y);
+	SDL_RenderDrawLine(engine.renderer, t.p3.x, t.p3.y, t.p1.x, t.p1.y);
+}
