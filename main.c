@@ -59,8 +59,8 @@ int main()
 		SDL_RenderClear(engine.renderer);
 	
 		// set the color to red, and draw a rectangle
-		SDL_SetRenderDrawColor(engine.renderer, 255, 0, 0, 255);
-		SDL_RenderDrawRect(engine.renderer, &rect);
+		
+		//SDL_RenderDrawRect(engine.renderer, &rect);
 		//SDL_RenderDrawLine(engine.renderer, 50, 50, 300, 300);
 		draw_triangle(engine, tri, 255, 0, 0, 255);		
 		// render everything
