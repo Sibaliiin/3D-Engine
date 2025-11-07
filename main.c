@@ -1,5 +1,4 @@
 #include	"SIB.h"
-#include	<time.h>
 
 // initializing the rectangle
 SDL_Rect rect;
@@ -11,18 +10,23 @@ int main()
 	int r = rand();
 
 	printf("random number = %d\n",r);
-	int rSize = 32;
+	int rSize = 16;
 	int random_numbers[(rSize*rSize)];
 
+	/*
 	for (int i=0; i<(rSize*rSize); i++)
 	{
 		random_numbers[i] = r%256;
 		printf("%d\n", r%256);
 		r = rand();
-	}	
-	printf("size of random numbers = %d\n", (int)sizeof(random_numbers));
+	}
+	*/
 	
 	r = rand()%256;
+
+	generate_random_numbers(random_numbers, r);
+	
+	printf("size of random numbers = %d\n", (int)sizeof(random_numbers));
 
 	Engine engine =	{NULL, NULL};
 
@@ -83,10 +87,11 @@ int main()
 			for (int j=0; j<rSize; j++)
 			{
 	
-				SDL_SetRenderDrawColor(engine.renderer, random_numbers[(rSize*i)+j],
-								random_numbers[(rSize*i)+j],
-								random_numbers[(rSize*i)+j],
-								 255);
+				SDL_SetRenderDrawColor(engine.renderer,
+							random_numbers[(rSize*i)+j],
+							random_numbers[(rSize*i)+j],
+							random_numbers[(rSize*i)+j],
+							255);
 				SDL_RenderFillRect(engine.renderer, &rect);
 				rect.x += 10;	
 			}

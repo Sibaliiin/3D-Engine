@@ -12,6 +12,17 @@ void print_signature()
 	printf("https://github.com/ProgrammingRainbow/Beginners-Guide-to-SDL2-in-C\n");	
 }
 
+int generate_random_numbers(int list[256], int r)
+{
+	for (int i=0; i<256; i++)
+	{
+		r = rand()%256;
+		list[i] = r;
+	}
+
+	return *list;
+}
+	
 void game_cleanup	(Engine *engine, int exit_status)
 {
 	SDL_DestroyRenderer(engine->renderer);
