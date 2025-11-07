@@ -1,8 +1,3 @@
-#include	<SDL2/SDL.h>
-
-#include	<stdio.h>
-#include	<stdbool.h>
-
 #include	"SIB.h"
 
 // initializing the rectangle
