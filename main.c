@@ -9,22 +9,12 @@
 #define SCREEN_WIDTH	800
 #define SCREEN_HEIGHT	600
 
-typedef struct
-{
-	SDL_Window	*window;
-	SDL_Renderer	*renderer;
-} Engine;
-
 void game_cleanup	(Engine *engine, int exit_status);
 bool sdl_initialize	(Engine *engine);
 
 int main()
 {
-	Engine engine =
-	{
-		NULL,
-		NULL,	
-	};
+	Engine engine =	{NULL, NULL};
 
 	if (sdl_initialize(&engine))
 	{
