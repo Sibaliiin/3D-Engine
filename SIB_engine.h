@@ -3,6 +3,10 @@
 
 #include	<SDL2/SDL.h>
 
+#define WINDOW_TITLE    "Window"
+#define SCREEN_WIDTH    800
+#define SCREEN_HEIGHT   600
+
 // engine structure
 typedef struct
 {
