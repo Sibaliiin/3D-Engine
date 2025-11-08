@@ -33,8 +33,30 @@ int main()
 	vec3 point1 = {50, 50, 0};
 	vec3 point2 = {100, 100, 0};
 	vec3 point3 = {0, 100, 0};
-
+	
 	triangle tri = {point1, point2, point3};
+	
+	// attemtping to make a 16*16 grid, which will be a terrain.
+	// it will consist of 16*16 points.
+	// every coordinate will be (0, 0, 0), (1, 0, 0), ... , (15, 0, 0) , (0, 0, 1), (1, 0, 1), ... , (15, 0, 15).
+	// we will use the random number generation, and put number[i] into point[i].y. y will be the height of the given "node".
+	vec3 pTerrain[16*16];
+	
+	for (int row=0; row<16; row++)
+	{
+		for (int col=0; col<16; col++)
+		{
+			pTerrain[(16*row)+col].x = row;
+			pTerrain[(16*row)+col].y = 1.0f;
+			pTerrain[(16*row)+col].z = col;
+		}
+	}
+	
+	for (int i=0; i<256; i++)
+	{
+		printf("pTerrain[i] = %f, %f, %f\n", pTerrain[i].x, pTerrain[i].y, pTerrain[i].z);
+	}
+
 
 	if (sdl_initialize(&engine))
 	{
