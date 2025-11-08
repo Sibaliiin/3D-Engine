@@ -2,4 +2,5 @@
 #  TO DO  #
 ###########
 
-1. Figure out matrices
+1. Put the transformations into separate functions and headers/c files.
+2. Figure out FPS movement.
