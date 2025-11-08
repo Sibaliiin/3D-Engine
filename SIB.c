@@ -7,9 +7,13 @@
 
 void print_signature()
 {
-	printf("This program was written by István Sibalin\nNovember 5. 2025\n");
+	printf("This program was written by István Sibalin\nNovember 5th, 2025\n");
 	printf("SDL Window boilerplate: Programming Rainbow\n");
 	printf("https://github.com/ProgrammingRainbow/Beginners-Guide-to-SDL2-in-C\n");	
+	printf("Projection matrix and related math based on the great videos made by OneLoneCoder\n");
+	printf("https://www.youtube.com/watch?v=ih20l3pJoeU\n");
+
+
 }
 
 int generate_random_numbers(int list[256], int r)
