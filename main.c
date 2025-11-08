@@ -46,15 +46,42 @@ int main()
 	{
 		for (int col=0; col<16; col++)
 		{
-			pTerrain[(16*row)+col].x = row;
-			pTerrain[(16*row)+col].y = 1.0f;
-			pTerrain[(16*row)+col].z = col;
+			pTerrain[(16*row)+col].x = col*10;
+			pTerrain[(16*row)+col].y = row*10;
+			pTerrain[(16*row)+col].z = (1.0f/256.0f) * random_numbers[(16*row)+col];
 		}
 	}
-	
+
+	triangle terrainTop[15*15];
+	triangle terrainBot[15*15];
+
+	// "top-left" triangles
+	for (int row=0; row<15; row++)
+	{
+		for (int col=0; col<15; col++)
+		{
+			terrainTop[(15*row)+col].p1 = pTerrain[(16*row)+col]; 
+			terrainTop[(15*row)+col].p2 = pTerrain[(16*row)+col+1];
+			terrainTop[(15*row)+col].p3 = pTerrain[(16*(row+1))+col];     
+		}
+	}
+	// "bottom-right" triangles
+	for (int row=0; row<15; row++)
+        {
+                for (int col=0; col<15; col++)
+                {
+                        printf("terrain[%d] = \n", (15*row)+col);
+                        terrainBot[(15*row)+col].p1 = pTerrain[(16*row)+col+1];
+                        terrainBot[(15*row)+col].p2 = pTerrain[(16*(row+1))+col+1];
+                        terrainBot[(15*row)+col].p3 = pTerrain[(16*(row+1))+col];                        
+                }
+        }
+
+
+	// print the pTerrain points	
 	for (int i=0; i<256; i++)
 	{
-		printf("pTerrain[i] = %f, %f, %f\n", pTerrain[i].x, pTerrain[i].y, pTerrain[i].z);
+		printf("pTerrain[%d] = %f, %f, %f\n", i,  pTerrain[i].x, pTerrain[i].y, pTerrain[i].z);
 	}
 
 
@@ -113,8 +140,14 @@ int main()
 			rect.y += 10;
 			rect.x = 40;
 		}	
-
-		draw_triangle(engine, tri, 255, 0, 0, 255);		
+		// draw the terrain mesh
+		for (int i=0; i<15*15; i++)
+		{	
+			draw_triangle(engine, terrainTop[i], 255, 255, 255, 255);
+			draw_triangle(engine, terrainBot[i], 255, 255, 255, 255);		
+		
+		}	
+		//draw_triangle(engine, terr1, 255, 255, 255, 255);
 		// render everything
 		SDL_RenderPresent(engine.renderer);
 
